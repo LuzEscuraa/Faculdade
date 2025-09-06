@@ -11,7 +11,6 @@ public class MetodoJacobi {
         double[][] A = new double[n][n];
         double[] b = new double[n];
 
-        // Lendo a matriz A
         System.out.println("Digite os coeficientes da matriz A:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -20,18 +19,17 @@ public class MetodoJacobi {
             }
         }
 
-        // Lendo o vetor b
         System.out.println("Digite os termos independentes do vetor b:");
         for (int i = 0; i < n; i++) {
             System.out.printf("b[%d] = ", i + 1);
             b[i] = sc.nextDouble();
         }
 
-        // Configurações do método
-        double[] x = new double[n];  // chute inicial (0,0,...,0)
+
+        double[] x = new double[n];
         double[] prox = new double[n];
-        double tol = 1e-6;          // tolerância
-        int maxIter = 100;          // número máximo de iterações
+        double tol = 1e-6;
+        int maxIter = 100;
 
         System.out.println("\n--- Iniciando método de Jacobi ---");
 
@@ -46,7 +44,7 @@ public class MetodoJacobi {
                 prox[i] = soma / A[i][i];
             }
 
-            // verificar critério de parada (norma da diferença)
+
             double erro = 0;
             for (int i = 0; i < n; i++) {
                 erro += Math.pow(prox[i] - x[i], 2);
